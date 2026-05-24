@@ -10,25 +10,26 @@
            FONTS & VARIABLES
            ========================================================================== */
         
-        /* Placeholder for Pangai Ultra Light (Local Font) */
         @font-face {
             font-family: 'Pangai Ultra Light';
             src: local('Pangai Ultra Light'), local('Pangai-UltraLight');
-            /* Replace the url below with the actual path to your font files */
             /* src: url('fonts/Pangai-UltraLight.woff2') format('woff2'); */
             font-weight: 300;
             font-style: normal;
         }
 
-        /* General Sans via Fontshare (as it is not available on Google Fonts) */
         @import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
 
         :root {
-            --bg-color: #FAFAF7; /* Soft off-white */
-            --text-dark: #2C2A29;
-            --text-light: #5A5754;
-            --accent-taupe: #B5A898; /* Warm taupe */
-            --accent-taupe-light: #E8E5DF;
+            /* Warm, Spring-Inspired Color Palette */
+            --bg-color: #FFFDF9; /* Warm ivory/cream */
+            --text-dark: #4A3F35; /* Warm espresso/charcoal */
+            --text-light: #7E7063; /* Soft taupe-brown */
+            
+            --accent-spring-primary: #E29578; /* Soft terracotta/peach */
+            --accent-spring-secondary: #A3B18A; /* Sage green */
+            --accent-light-bg: #FDF4EF; /* Very pale peach for cards/backgrounds */
+            --accent-border: #E8D8CE; /* Subtle warm border color */
             
             --font-display: 'Pangai Ultra Light', 'Didot', 'Bodoni MT', 'Times New Roman', serif;
             --font-body: 'General Sans', sans-serif;
@@ -47,7 +48,7 @@
             font-family: var(--font-body);
             background-color: var(--bg-color);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -57,9 +58,10 @@
             text-align: center;
         }
 
+        /* Adjusted for wider desktop view */
         section {
-            padding: 6rem 2rem;
-            max-width: 1000px;
+            padding: 8rem 2rem;
+            max-width: 1200px; 
             margin: 0 auto;
         }
 
@@ -70,21 +72,36 @@
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--accent-taupe);
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-spring-primary);
             color: #fff;
             font-family: var(--font-body);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            border-radius: 2px;
-            transition: background-color 0.3s ease;
+            border-radius: 50px;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(226, 149, 120, 0.2);
         }
 
         .btn:hover {
-            background-color: #9C8E7E;
+            background-color: #D38164;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(226, 149, 120, 0.3);
+        }
+
+        /* ==========================================================================
+           DIVIDER STYLES
+           ========================================================================== */
+        .floral-divider {
+            display: block;
+            width: 100%;
+            max-width: 500px; /* Adjust based on desired width */
+            margin: 4rem auto; /* Spacing above and below the divider */
+            height: auto;
+            opacity: 0.85; /* Soften the image slightly to blend with background */
         }
 
         /* ==========================================================================
@@ -97,42 +114,48 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
+            position: relative;
+            max-width: 1400px; /* Allow hero to be wider */
+            margin: 0 auto;
         }
 
         .quote {
-            font-size: 1rem;
+            font-size: 1.2rem; /* Slightly larger for desktop */
             color: var(--text-light);
             font-style: italic;
-            margin-bottom: 4rem;
-            line-height: 1.8;
-            max-width: 600px;
+            margin-bottom: 5rem;
+            line-height: 2;
+            max-width: 800px; /* Wider quote area */
         }
 
         .quote cite {
             display: block;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: var(--accent-taupe);
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            color: var(--accent-spring-secondary);
+            font-weight: 500;
+            font-style: normal;
         }
 
         .names {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1.1;
-            margin-bottom: 1rem;
+            font-size: clamp(4rem, 10vw, 8rem); /* Larger names on desktop */
+            line-height: 1;
+            margin-bottom: 2rem;
             color: var(--text-dark);
         }
 
         .date {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 500;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
+            color: var(--accent-spring-secondary);
         }
 
         .subtext {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: var(--text-light);
         }
 
@@ -140,66 +163,98 @@
            LOCATIONS SECTION
            ========================================================================== */
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 3.5rem; /* Larger section titles */
+            margin-bottom: 5rem;
             color: var(--text-dark);
+            position: relative;
+        }
+
+        /* Delicate underline for headings */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 1px;
+            background-color: var(--accent-spring-primary);
+            margin: 2rem auto 0;
         }
 
         .locations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Wider columns */
+            gap: 5rem; /* Increased gap */
         }
 
         .location-card {
-            background: #fff;
-            padding: 3rem 2rem;
+            background: var(--accent-light-bg);
+            padding: 5rem 4rem; /* More breathing room inside cards */
             text-align: center;
-            border: 1px solid var(--accent-taupe-light);
-            border-radius: 4px;
+            border: 1px solid var(--accent-border);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
         }
 
         .location-type {
             font-family: var(--font-display);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent-taupe);
+            font-size: 2.5rem; /* Larger location type */
+            margin-bottom: 1.5rem;
+            color: var(--accent-spring-primary);
         }
 
         .location-time {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--accent-spring-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .location-details {
-            margin-bottom: 2rem;
-            font-weight: 500;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 2;
+            font-size: 1.1rem;
         }
 
         /* ==========================================================================
            PROGRAM TIMELINE
            ========================================================================== */
+        .program {
+            background-color: #fff;
+            border-radius: 20px;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+            padding: 8rem 4rem; /* More internal padding */
+            max-width: 900px; /* Center and restrict width for timeline */
+        }
+
         .timeline-container {
-            max-width: 500px;
+            max-width: 600px; /* Slightly wider container */
             margin: 0 auto;
         }
 
         .timeline-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem; /* More space between timeline events */
             position: relative;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 65px;
-            top: 10px;
-            bottom: -35px;
+            left: 85px; /* Adjust line position */
+            top: 15px;
+            bottom: -55px; /* Extend line further down */
             width: 1px;
-            background-color: var(--accent-taupe-light);
+            background-color: var(--accent-border);
         }
 
         .timeline-item:last-child::before {
@@ -207,22 +262,24 @@
         }
 
         .time {
-            font-weight: 600;
-            width: 80px;
-            color: var(--accent-taupe);
+            font-weight: 500;
+            font-size: 1.3rem; /* Larger time */
+            width: 100px; /* Adjusted width */
+            color: var(--accent-spring-secondary);
             flex-shrink: 0;
-            padding-top: 2px;
+            padding-top: 0;
         }
 
         .dot {
-            width: 9px;
-            height: 9px;
-            background-color: var(--accent-taupe);
+            width: 13px; /* Slightly larger dot */
+            height: 13px;
+            background-color: var(--accent-spring-primary);
             border-radius: 50%;
-            margin-right: 2rem;
+            margin-right: 3rem; /* More space after dot */
             margin-top: 8px;
             position: relative;
             z-index: 2;
+            box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--accent-border);
         }
 
         .event {
@@ -231,36 +288,43 @@
 
         .event-title {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 2.2rem; /* Larger event title */
+            color: var(--text-dark);
+            line-height: 1.2;
         }
 
         .event-desc {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: var(--text-light);
-            margin-top: 0.3rem;
+            margin-top: 0.8rem;
         }
 
         /* ==========================================================================
            FAQ SECTION (ACCORDION)
            ========================================================================== */
         .faq-container {
-            max-width: 700px;
+            max-width: 800px; /* Wider FAQ container */
             margin: 0 auto;
         }
 
         details {
-            border-bottom: 1px solid var(--accent-taupe-light);
-            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--accent-border);
+            padding: 2.5rem 0; /* More spacing for readability */
         }
 
         summary {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 2rem; /* Larger questions */
             cursor: pointer;
             list-style: none;
             position: relative;
-            padding-right: 2rem;
+            padding-right: 3rem;
             color: var(--text-dark);
+            transition: color 0.3s ease;
+        }
+
+        summary:hover {
+            color: var(--accent-spring-primary);
         }
 
         summary::-webkit-details-marker {
@@ -274,9 +338,9 @@
             top: 50%;
             transform: translateY(-50%);
             font-family: var(--font-body);
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 300;
-            color: var(--accent-taupe);
+            color: var(--accent-spring-secondary);
         }
 
         details[open] summary::after {
@@ -284,9 +348,10 @@
         }
 
         .faq-answer {
-            padding-top: 1rem;
+            padding-top: 2rem;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.9;
+            font-size: 1.15rem; /* Larger answers */
         }
 
         /* ==========================================================================
@@ -294,16 +359,36 @@
            ========================================================================== */
         .rsvp-section {
             text-align: center;
-            background-color: #fff;
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--accent-taupe-light);
-            border-bottom: 1px solid var(--accent-taupe-light);
+            background-color: var(--accent-light-bg);
+            padding: 8rem 4rem; /* Generous padding */
+            border-radius: 20px;
+            margin: 5rem auto;
+            max-width: 1000px;
+            border: 1px solid var(--accent-border);
         }
 
         .rsvp-text {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem; /* Larger text */
+            margin-bottom: 4rem;
             color: var(--text-dark);
+            line-height: 2;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .qr-placeholder {
+            width: 200px; /* Larger QR placeholder */
+            height: 200px;
+            background-color: #fff;
+            border: 2px dashed var(--accent-spring-secondary);
+            margin: 0 auto 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            border-radius: 8px;
         }
 
         /* ==========================================================================
@@ -311,36 +396,49 @@
            ========================================================================== */
         footer {
             text-align: center;
-            padding: 3rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            padding: 5rem 2rem;
+            color: var(--accent-spring-secondary);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            font-family: var(--font-display);
         }
 
         /* ==========================================================================
-           RESPONSIVE
+           RESPONSIVE (Reset sizes for mobile)
            ========================================================================== */
         @media (max-width: 768px) {
             section {
-                padding: 4rem 1.5rem;
+                padding: 5rem 1.5rem;
             }
             .hero {
-                padding-top: 4rem;
+                padding-top: 6rem;
             }
             .names {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             .locations-grid {
                 grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .location-card {
+                padding: 3rem 2rem;
             }
             .timeline-item::before {
-                left: 55px;
+                left: 65px;
             }
             .time {
-                width: 60px;
+                width: 70px;
             }
             .dot {
-                margin-right: 1rem;
+                margin-right: 1.5rem;
+            }
+            .rsvp-section {
+                padding: 4rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+            .floral-divider {
+                max-width: 80%;
+                margin: 3rem auto;
             }
         }
     </style>
@@ -364,6 +462,8 @@
         <div class="date">2026. augusztus 21.</div>
         <div class="subtext">Szeretettel meghívunk tartandó esküvőnkre.</div>
     </header>
+
+    <img src="image_732264.png" alt="Floral Divider" class="floral-divider">
 
     <section class="locations">
         <h2 class="section-title">Helyszínek</h2>
@@ -391,6 +491,8 @@
             
         </div>
     </section>
+
+    <img src="image_732264.png" alt="Floral Divider" class="floral-divider">
 
     <section class="program">
         <h2 class="section-title">Programterv</h2>
@@ -440,6 +542,8 @@
         </div>
     </section>
 
+    <img src="image_732264.png" alt="Floral Divider" class="floral-divider">
+
     <section class="faq">
         <h2 class="section-title">Gyakori Kérdések</h2>
         <div class="faq-container">
@@ -475,14 +579,26 @@
         </div>
     </section>
 
+    <img src="image_732264.png" alt="Floral Divider" class="floral-divider">
+
     <section class="rsvp-section">
-        <h2 class="section-title" style="margin-bottom: 1.5rem;">Várjuk visszajelzéseteket</h2>
-        <p class="rsvp-text">Kérjük, részvételi szándékotokat 2026. június 15-ig jelezzétek felénk!</p>
-        <a href="#visszajelzes-url" class="btn" style="padding: 1rem 3rem; font-size: 1rem;">Visszajelzés</a>
+        <h2 class="section-title" style="margin-bottom: 2rem;">Visszajelzés</h2>
+        
+        <div class="qr-placeholder">
+            [ Ide jöhet a QR kód képe ]
+        </div>
+
+        <p class="rsvp-text">
+            Kérjük, részvételi szándékotokat, szállásigényeteket és esetleges ételintoleranciátokat 
+            a fenti QR-kóddal elérhető űrlapon, vagy személyesen jelezzétek felénk.<br><br>
+            <strong>Visszajelzéseteket 2026. június 15-ig várjuk.</strong>
+        </p>
+        
+        <a href="#visszajelzes-url" class="btn">Űrlap megnyitása</a>
     </section>
 
     <footer>
-        B & Á | 2026
+        Boglárka & Ábrahám | 2026
     </footer>
 
 </body>
