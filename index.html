@@ -1,1 +1,489 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boglárka & Ábrahám Esküvője</title>
+    
+    <style>
+        /* ==========================================================================
+           FONTS & VARIABLES
+           ========================================================================== */
+        
+        /* Placeholder for Pangai Ultra Light (Local Font) */
+        @font-face {
+            font-family: 'Pangai Ultra Light';
+            src: local('Pangai Ultra Light'), local('Pangai-UltraLight');
+            /* Replace the url below with the actual path to your font files */
+            /* src: url('fonts/Pangai-UltraLight.woff2') format('woff2'); */
+            font-weight: 300;
+            font-style: normal;
+        }
 
+        /* General Sans via Fontshare (as it is not available on Google Fonts) */
+        @import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
+
+        :root {
+            --bg-color: #FAFAF7; /* Soft off-white */
+            --text-dark: #2C2A29;
+            --text-light: #5A5754;
+            --accent-taupe: #B5A898; /* Warm taupe */
+            --accent-taupe-light: #E8E5DF;
+            
+            --font-display: 'Pangai Ultra Light', 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+            --font-body: 'General Sans', sans-serif;
+        }
+
+        /* ==========================================================================
+           BASE STYLES & RESET
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            text-align: center;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-taupe);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #9C8E7E;
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .quote {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 4rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .quote cite {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--accent-taupe);
+        }
+
+        .names {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .date {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .subtext {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        /* ==========================================================================
+           LOCATIONS SECTION
+           ========================================================================== */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .location-card {
+            background: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid var(--accent-taupe-light);
+            border-radius: 4px;
+        }
+
+        .location-type {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-taupe);
+        }
+
+        .location-time {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .location-details {
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           PROGRAM TIMELINE
+           ========================================================================== */
+        .timeline-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 65px;
+            top: 10px;
+            bottom: -35px;
+            width: 1px;
+            background-color: var(--accent-taupe-light);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .time {
+            font-weight: 600;
+            width: 80px;
+            color: var(--accent-taupe);
+            flex-shrink: 0;
+            padding-top: 2px;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            background-color: var(--accent-taupe);
+            border-radius: 50%;
+            margin-right: 2rem;
+            margin-top: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event {
+            flex-grow: 1;
+        }
+
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+        }
+
+        .event-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        /* ==========================================================================
+           FAQ SECTION (ACCORDION)
+           ========================================================================== */
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        details {
+            border-bottom: 1px solid var(--accent-taupe-light);
+            padding: 1.5rem 0;
+        }
+
+        summary {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 2rem;
+            color: var(--text-dark);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--accent-taupe);
+        }
+
+        details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding-top: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           RSVP SECTION
+           ========================================================================== */
+        .rsvp-section {
+            text-align: center;
+            background-color: #fff;
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--accent-taupe-light);
+            border-bottom: 1px solid var(--accent-taupe-light);
+        }
+
+        .rsvp-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+            .hero {
+                padding-top: 4rem;
+            }
+            .names {
+                font-size: 3rem;
+            }
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline-item::before {
+                left: 55px;
+            }
+            .time {
+                width: 60px;
+            }
+            .dot {
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="quote">
+            <p>
+                Ahogy lassan kinyitja szirmait a virág<br>
+                ahogy lassan kapcsolódnak fel az utca fényei<br>
+                Úgy szerettem beléd,<br>
+                lassan, lassan, ahogy senkibe soha még<br>
+                A tányér széle a villához ér<br>
+                aki vagyok melletted, az lettem én.
+            </p>
+            <cite>Kollár-Klemencz László</cite>
+        </div>
+        
+        <h1 class="names">BOGLÁRKA<br>&<br>ÁBRAHÁM</h1>
+        <div class="date">2026. augusztus 21.</div>
+        <div class="subtext">Szeretettel meghívunk tartandó esküvőnkre.</div>
+    </header>
+
+    <section class="locations">
+        <h2 class="section-title">Helyszínek</h2>
+        <div class="locations-grid">
+            
+            <div class="location-card">
+                <h3 class="location-type">Templomi szertartás</h3>
+                <p class="location-time">14:30-tól várjuk a vendégeket</p>
+                <p class="location-details">
+                    Spanyol Piarista Vértanúk Temploma<br>
+                    Szeged, Bálint Sándor u. 14, 6724
+                </p>
+                <a href="https://maps.app.goo.gl/N1yydKT6CG56QnQMA" target="_blank" rel="noopener noreferrer" class="btn">Útvonaltervezés</a>
+            </div>
+
+            <div class="location-card">
+                <h3 class="location-type">Lakodalom</h3>
+                <p class="location-time">A templomi szertartást követően</p>
+                <p class="location-details">
+                    Kastélykert Fogadó<br>
+                    Szeged, Algyői út 118, 6728
+                </p>
+                <a href="https://maps.app.goo.gl/KfxLVPtZmaENJ1N38" target="_blank" rel="noopener noreferrer" class="btn">Útvonaltervezés</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="program">
+        <h2 class="section-title">Programterv</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item">
+                <div class="time">15:00</div>
+                <div class="dot"></div>
+                <div class="event">
+                    <div class="event-title">Esküvő</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">16:30</div>
+                <div class="dot"></div>
+                <div class="event">
+                    <div class="event-title">Gratuláció</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">17:30</div>
+                <div class="dot"></div>
+                <div class="event">
+                    <div class="event-title">Fotózás</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">19:30</div>
+                <div class="dot"></div>
+                <div class="event">
+                    <div class="event-title">Vacsora</div>
+                    <div class="event-desc">Svédasztalos vacsora, később éjféli terítéssel</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">21:30</div>
+                <div class="dot"></div>
+                <div class="event">
+                    <div class="event-title">Mulatság</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2 class="section-title">Gyakori Kérdések</h2>
+        <div class="faq-container">
+            
+            <details>
+                <summary>Gyerekeket lehet hozni?</summary>
+                <div class="faq-answer">
+                    Mindenkinek a gyerekét örömmel várjuk, hogy együtt tudjunk ünnepelni!
+                </div>
+            </details>
+
+            <details>
+                <summary>Nászajándék</summary>
+                <div class="faq-answer">
+                    A legnagyobb ajándék számunkra, hogy velünk ünnepeltek. Mivel a háztartásunk már teljes, ha szeretnétek valami aprósággal hozzájárulni a közös életünkhöz, azt borítékban tehetitek meg.
+                </div>
+            </details>
+
+            <details>
+                <summary>Utazás és Transzfer</summary>
+                <div class="faq-answer">
+                    Az este folyamán, a lagzi helyszínéről Szegedre a transzfer biztosított lesz, így senkinek nem kell aggódnia a hazajutás miatt.
+                </div>
+            </details>
+
+            <details>
+                <summary>Ételintolerancia</summary>
+                <div class="faq-answer">
+                    Kérjük, az esetleges ételintoleranciát a visszajelzéskor feltétlenül jelezzétek felénk!
+                </div>
+            </details>
+
+        </div>
+    </section>
+
+    <section class="rsvp-section">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">Várjuk visszajelzéseteket</h2>
+        <p class="rsvp-text">Kérjük, részvételi szándékotokat 2026. június 15-ig jelezzétek felénk!</p>
+        <a href="#visszajelzes-url" class="btn" style="padding: 1rem 3rem; font-size: 1rem;">Visszajelzés</a>
+    </section>
+
+    <footer>
+        B & Á | 2026
+    </footer>
+
+</body>
+</html>
