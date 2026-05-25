@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boglárka & Ábrahám Esküvője</title>
     
+    <!-- Betűtípusok importálása -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
@@ -50,16 +51,23 @@
             padding: 0 20px;
         }
 
-        /* Elválasztó Virág */
+        /* Javított, elegáns SVG virágos/botanikai elválasztó */
         .divider {
-            text-align: center;
-            margin: 3rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 4rem 0;
+            opacity: 0.7;
         }
         
-        .divider img {
-            max-width: 150px;
+        .divider svg {
+            width: 180px;
             height: auto;
-            opacity: 0.85;
+            fill: none;
+            stroke: var(--accent-green);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         /* Gombok formázása */
@@ -117,7 +125,7 @@
 
         /* 2. Helyszínek Szekció */
         .locations {
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
 
         .locations h2 {
@@ -188,7 +196,6 @@
             position: relative;
         }
 
-        /* Idővonal vonal */
         .timeline::before {
             content: '';
             position: absolute;
@@ -210,7 +217,6 @@
             margin-bottom: 0;
         }
 
-        /* Idővonal pöttyök */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -241,7 +247,7 @@
 
         /* 4. Gyakori Kérdések (FAQ) */
         .faq {
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
 
         .faq h2 {
@@ -310,15 +316,23 @@
 </head>
 <body>
 
+    <!-- 1. Hero Szekció -->
     <header class="hero">
         <h1>BOGLÁRKA & ÁBRAHÁM</h1>
         <div class="date">2026. augusztus 21.</div>
         <div class="subtext">Szeretettel meghívunk esküvőnkre.</div>
     </header>
 
+    <!-- 2. Helyszínek -->
     <section class="locations container">
+        <!-- Modern, reszponzív botanikai elválasztó motívum -->
         <div class="divider">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6sAAABjCAYAAAB9sZbBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAHkySURBVHhe7b0JlyPZdR54gdiwb7lnbb2xSVHU4tFiWfbR8Tkez+/y//KZ8XhsURIlH4sUySZ7qzX3xL5HBID5vhsZWVHozKrqbnYrWbhfNwpIIOJFxHv3ffe7b82tADEYDAaDwWAwGAwGg+EOIX/1bjAYDAaDwWAwGAwGw52BBasGg8FgMBgMBoPBYLhzsGDVYDAYDAaDwWAwGAx3DhasGgwGg8FgMBgMBoPhzsGCVYPBYDAYDAaDwWAw3DlYsGowGAwGg8FgMBgMhjsHC1YNBoPBYDAYDAaDwXDnYMGqwWAwGAwGg8FgMBjuHCxYNRgMBoPBYDAYDAbDnYMFqwaDwWAwGAwGg8FguHOwYNVgMBgMBoPBYDAYDHcOFqwaDAaDwWAwGAwGg+HOwYJVg8FgMBgMBoPBYDDcOViwajAYDAaDwWAwGAyGOwcLVg0Gg8FgMBgMBoPBcOdgwarBYDAYDAaDwWAwGO4cLFg1GAwGg8FgMBgMBoPhzsGCVYPBYDAYDAaDwWAw3DlYsGowGAwGg8FgMBgMhjsHC1YNBoPBYDAYDAaDwXDnYMGqwWAwGAwGg8FgMBjuHCxYNRgMBoPBYDAYDAbDnYMFqwaDwWAwGAwGg8FguHOwYNVgMBgMBoPBYDAYDHcOFqwaDAaDwWAwGAwGg+HOwYJVg8FgMBgMBoPBYDDcOViwajAYDAaDwWAwGAyGOwcLVg0Gg8FgMBgMBoPBcOdgwarBYDAYDAaDwWAwGO4YRP5/U1rqdkhCnqYAAAAASUVORK5CYII=" alt="Virágos elválasztó">
+            <svg viewBox="0 0 100 20">
+                <path d="M 10,10 C 30,15 40,5 50,10 C 60,15 70,5 90,10" />
+                <path d="M 30,12 C 28,8 32,5 35,9 C 33,13 31,14 30,12 Z" fill="#90A583" />
+                <path d="M 45,8 C 43,4 47,2 50,6 C 48,10 46,11 45,8 Z" fill="#90A583" />
+                <path d="M 65,11 C 67,7 71,8 70,12 C 67,14 65,13 65,11 Z" fill="#90A583" />
+            </svg>
         </div>
 
         <h2>Helyszínek</h2>
@@ -341,10 +355,16 @@
         </div>
     </section>
 
+    <!-- 3. Programterv -->
     <section class="program">
         <div class="container">
             <div class="divider">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6sAAABjCAYAAAB9sZbBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAHkySURBVHhe7b0JlyPZdR54gdiwb7lnbb2xSVHU4tFiWfbR8Tkez+/y//KZ8XhsURIlH4sUySZ7qzX3xL5HBID5vhsZWVHozKrqbnYrWbhfNwpIIOJFxHv3ffe7b82tADEYDAaDwWAwGAwGg+EOIX/1bjAYDAaDwWAwGAwGw52BBasGg8FgMBgMBoPBYLhzsGDVYDAYDAaDwWAwGAx3DhasGgwGg8FgMBgMBoPhzsGCVYPBYDAYDAaDwWAw3DlYsGowGAwGg8FgMBgMhjsHC1YNBoPBYDAYDAaDwXDnYMGqwWAwGAwGg8FgMBjuHCxYNRgMBoPBYDAYDAbDnYMFqwaDwWAwGAwGg8FguHOwYNVgMBgMBoPBYDAYDHcOFqwaDAaDwWAwGAwGg+HOwYJVg8FgMBgMBoPBYDDcOViwajAYDAaDwWAwGAyGOwcLVg0Gg8FgMBgMBoPBcOdgwarBYDAYDAaDwWAwGO4cLFg1GAwGg8FgMBgMBoPhzsGCVYPBYDAYDAaDwWAw3DlYsGowGAwGg8FgMBgMhjsHC1YNBoPBYDAYDAaDwXDnYMGqwWAwGAwGg8FgMBjuHCxYNRgMBoPBYDAYDAbDnYMFqwaDwWAwGAwGg8FguHOwYNVgMBgMBoPBYDAYDHcOFqwaDAaDwWAwGAwGg+HOwYJVg8FgMBgMBoPBYDDcOViwajAYDAaDwWAwGAyGOwcLVg0Gg8FgMBgMBoPBcOdgwarBYDAYDAaDwWAwGO4YRP5/U1rqdkhCnqYAAAAASUVORK5CYII=" alt="Virágos elválasztó">
+                <svg viewBox="0 0 100 20">
+                    <path d="M 10,10 C 30,15 40,5 50,10 C 60,15 70,5 90,10" />
+                    <path d="M 30,12 C 28,8 32,5 35,9 C 33,13 31,14 30,12 Z" fill="#90A583" />
+                    <path d="M 45,8 C 43,4 47,2 50,6 C 48,10 46,11 45,8 Z" fill="#90A583" />
+                    <path d="M 65,11 C 67,7 71,8 70,12 C 67,14 65,13 65,11 Z" fill="#90A583" />
+                </svg>
             </div>
 
             <h2>Programterv</h2>
@@ -380,9 +400,15 @@
         </div>
     </section>
 
+    <!-- 4. Gyakori Kérdések -->
     <section class="faq container">
         <div class="divider">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6sAAABjCAYAAAB9sZbBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAHkySURBVHhe7b0JlyPZdR54gdiwb7lnbb2xSVHU4tFiWfbR8Tkez+/y//KZ8XhsURIlH4sUySZ7qzX3xL5HBID5vhsZWVHozKrqbnYrWbhfNwpIIOJFxHv3ffe7b82tADEYDAaDwWAwGAwGg+EOIX/1bjAYDAaDwWAwGAwGw52BBasGg8FgMBgMBoPBYLhzsGDVYDAYDAaDwWAwGAx3DhasGgwGg8FgMBgMBoPhzsGCVYPBYDAYDAaDwWAw3DlYsGowGAwGg8FgMBgMhjsHC1YNBoPBYDAYDAaDwXDnYMGqwWAwGAwGg8FgMBjuHCxYNRgMBoPBYDAYDAbDnYMFqwaDwWAwGAwGg8FguHOwYNVgMBgMBoPBYDAYDHcOFqwaDAaDwWAwGAwGg+HOwYJVg8FgMBgMBoPBYDDcOViwajAYDAaDwWAwGAyGOwcLVg0Gg8FgMBgMBoPBcOdgwarBYDAYDAaDwWAwGO4cLFg1GAwGg8FgMBgMBoPhzsGCVYPBYDAYDAaDwWAw3DlYsGowGAwGg8FgMBgMhjsHC1YNBoPBYDAYDAaDwXDnYMGqwWAwGAwGg8FgMBjuHCxYNRgMBoPBYDAYDAbDnYMFqwaDwWAwGAwGg8FguHOwYNVgMBgMBoPBYDAYDHcOFqwaDAaDwWAwGAwGg+HOwYJVg8FgMBgMBoPBYDDcOViwajAYDAaDwWAwGAyGOwcLVg0Gg8FgMBgMBoPBcOdgwarBYDAYDAaDwWAwGO4YRP5/U1rqdkhCnqYAAAAASUVORK5CYII=" alt="Virágos elválasztó">
+            <svg viewBox="0 0 100 20">
+                <path d="M 10,10 C 30,15 40,5 50,10 C 60,15 70,5 90,10" />
+                <path d="M 30,12 C 28,8 32,5 35,9 C 33,13 31,14 30,12 Z" fill="#90A583" />
+                <path d="M 45,8 C 43,4 47,2 50,6 C 48,10 46,11 45,8 Z" fill="#90A583" />
+                <path d="M 65,11 C 67,7 71,8 70,12 C 67,14 65,13 65,11 Z" fill="#90A583" />
+            </svg>
         </div>
 
         <h2>Gyakori Kérdések</h2>
@@ -410,6 +436,7 @@
 
     </section>
 
+    <!-- 5. Visszajelzés -->
     <section class="rsvp">
         <div class="container">
             <h2>Visszajelzés</h2>
