@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boglárka & Ábrahám Esküvője</title>
     
+    <!-- Betűtípusok importálása -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
@@ -22,11 +23,15 @@
             --font-body: 'General Sans', sans-serif;
         }
 
-        /* Alapbeállítások (Reset & Base) */
+        /* Alapbeállítások és finom görgetés (Smooth Scroll) */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -48,6 +53,83 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Szekciók eltolása a menüsáv miatt (hogy ne takarjon be a címbe ugráskor) */
+        section {
+            scroll-margin-top: 70px; 
+        }
+
+        /* 1. Hero Szekció */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--accent-pink) 0%, var(--bg-color) 100%);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .hero .date {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+
+        .hero .subtext {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Navigációs menüsáv (Sticky) */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(250, 250, 247, 0.92); /* Enyhén átlátszó háttérszín */
+            backdrop-filter: blur(8px); /* Modern homályosítás a háttéren */
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 1rem 20px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(144, 165, 131, 0.2);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin: 5px 15px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: var(--accent-green);
+        }
+
+        @media (max-width: 600px) {
+            .navbar a {
+                margin: 5px 10px;
+                font-size: 0.75rem;
+            }
         }
 
         /* Egyedi kódolt elegáns botanikai elválasztó */
@@ -83,39 +165,6 @@
         .btn:hover {
             background-color: #7b8e70;
             transform: translateY(-2px);
-        }
-
-        /* 1. Hero Szekció */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(to bottom, var(--accent-pink) 0%, var(--bg-color) 100%);
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .hero .date {
-            font-family: var(--font-body);
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            color: var(--accent-green);
-        }
-
-        .hero .subtext {
-            font-size: 1.1rem;
-            font-style: italic;
-            opacity: 0.8;
         }
 
         /* 2. Helyszínek Szekció */
@@ -311,14 +360,25 @@
 </head>
 <body>
 
+    <!-- 1. Hero Szekció -->
     <header class="hero">
         <h1>BOGLÁRKA & ÁBRAHÁM</h1>
         <div class="date">2026. augusztus 21.</div>
         <div class="subtext">Szeretettel meghívunk esküvőnkre.</div>
     </header>
 
-    <section class="locations container">
+    <!-- ÚJ: Rögzített (Sticky) Navigációs Menüsáv -->
+    <nav class="navbar">
+        <a href="#helyszinek">Helyszínek</a>
+        <a href="#programterv">Programterv</a>
+        <a href="#gyik">Gyakori Kérdések</a>
+        <a href="#visszajelzes">Visszajelzés</a>
+    </nav>
+
+    <!-- 2. Helyszínek (Hozzáadott ID-val a görgetéshez) -->
+    <section id="helyszinek" class="locations container">
         
+        <!-- Egyedi kódolt elegáns botanikai SVG elválasztó -->
         <div class="divider">
             <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
                 <g fill="var(--accent-green)">
@@ -326,14 +386,12 @@
                     <path d="M120,20 Q115,10 105,15 Q115,20 120,20 Z" />
                     <path d="M120,20 Q125,30 135,25 Q125,20 120,20 Z" />
                     <path d="M120,20 Q115,30 105,25 Q115,20 120,20 Z" />
-                    
                     <path d="M100,20 Q60,10 20,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
                     <path d="M80,17 Q75,8 65,12 Q72,15 80,17 Z" />
                     <path d="M60,15 Q55,6 45,10 Q52,13 60,15 Z" />
                     <path d="M40,17 Q35,8 25,12 Q32,15 40,17 Z" />
                     <path d="M70,18 Q65,27 55,23 Q62,20 70,18 Z" />
                     <path d="M50,19 Q45,28 35,24 Q42,21 50,19 Z" />
-                    
                     <path d="M140,20 Q180,10 220,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
                     <path d="M160,17 Q165,8 175,12 Q168,15 160,17 Z" />
                     <path d="M180,15 Q185,6 195,10 Q188,13 180,15 Z" />
@@ -364,7 +422,8 @@
         </div>
     </section>
 
-    <section class="program">
+    <!-- 3. Programterv (Hozzáadott ID-val) -->
+    <section id="programterv" class="program">
         <div class="container">
             <div class="divider">
                 <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
@@ -422,7 +481,8 @@
         </div>
     </section>
 
-    <section class="faq container">
+    <!-- 4. Gyakori Kérdések (Hozzáadott ID-val) -->
+    <section id="gyik" class="faq container">
         <div class="divider">
             <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
                 <g fill="var(--accent-green)">
@@ -439,4 +499,46 @@
                     <path d="M140,20 Q180,10 220,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
                     <path d="M160,17 Q165,8 175,12 Q168,15 160,17 Z" />
                     <path d="M180,15 Q185,6 195,10 Q188,13 180,15 Z" />
-                    <path d="M200,17 Q205,8 215,12 Q208,1
+                    <path d="M200,17 Q205,8 215,12 Q208,15 200,17 Z" />
+                    <path d="M170,18 Q175,27 185,23 Q178,20 170,18 Z" />
+                    <path d="M190,19 Q195,28 205,24 Q198,21 190,19 Z" />
+                </g>
+            </svg>
+        </div>
+
+        <h2>Gyakori Kérdések</h2>
+        
+        <details>
+            <summary>Nászajándék</summary>
+            <div class="faq-content">
+                A legnagyobb ajándék számunkra, hogy velünk ünnepeltek. Mivel a háztartásunk már teljes, ha szeretnétek hozzájárulni a közös életünkhöz, azt borítékban tehetitek meg.
+            </div>
+        </details>
+
+        <details>
+            <summary>Utazás és Transzfer</summary>
+            <div class="faq-content">
+                Az este folyamán, a lagzi helyszínéről Szegedre a transzfer biztosított lesz, így senkinek nem kell aggódnia a hazajutás miatt.
+            </div>
+        </details>
+
+        <details>
+            <summary>Ételintolerancia</summary>
+            <div class="faq-content">
+                Kérjük, az esetleges ételintoleranciát a visszajelzéskor feltétlenül jelezzétek felénk!
+            </div>
+        </details>
+
+    </section>
+
+    <!-- 5. Visszajelzés (Hozzáadott ID-val) -->
+    <section id="visszajelzes" class="rsvp">
+        <div class="container">
+            <h2>Visszajelzés</h2>
+            <p>Kérjük, részvételi szándékotokat 2026. június 15-ig jelezzétek felénk!</p>
+            <a href="https://forms.gle/13V3rEkRmvKMJMfr8" target="_blank" class="btn">Visszajelzés űrlap megnyitása</a>
+        </div>
+    </section>
+
+</body>
+</html>
