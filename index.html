@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boglárka & Ábrahám Esküvője</title>
     
-    <!-- Betűtípusok importálása -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
@@ -51,23 +50,19 @@
             padding: 0 20px;
         }
 
-        /* Javított, elegáns SVG virágos/botanikai elválasztó */
+        /* Egyedi kódolt elegáns botanikai elválasztó */
         .divider {
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 4rem 0;
-            opacity: 0.7;
+            opacity: 0.85;
         }
         
         .divider svg {
-            width: 180px;
+            width: 280px;
             height: auto;
-            fill: none;
-            stroke: var(--accent-green);
-            stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            max-width: 80vw;
         }
 
         /* Gombok formázása */
@@ -316,22 +311,36 @@
 </head>
 <body>
 
-    <!-- 1. Hero Szekció -->
     <header class="hero">
         <h1>BOGLÁRKA & ÁBRAHÁM</h1>
         <div class="date">2026. augusztus 21.</div>
         <div class="subtext">Szeretettel meghívunk esküvőnkre.</div>
     </header>
 
-    <!-- 2. Helyszínek -->
     <section class="locations container">
-        <!-- Modern, reszponzív botanikai elválasztó motívum -->
+        
         <div class="divider">
-            <svg viewBox="0 0 100 20">
-                <path d="M 10,10 C 30,15 40,5 50,10 C 60,15 70,5 90,10" />
-                <path d="M 30,12 C 28,8 32,5 35,9 C 33,13 31,14 30,12 Z" fill="#90A583" />
-                <path d="M 45,8 C 43,4 47,2 50,6 C 48,10 46,11 45,8 Z" fill="#90A583" />
-                <path d="M 65,11 C 67,7 71,8 70,12 C 67,14 65,13 65,11 Z" fill="#90A583" />
+            <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
+                <g fill="var(--accent-green)">
+                    <path d="M120,20 Q125,10 135,15 Q125,20 120,20 Z" />
+                    <path d="M120,20 Q115,10 105,15 Q115,20 120,20 Z" />
+                    <path d="M120,20 Q125,30 135,25 Q125,20 120,20 Z" />
+                    <path d="M120,20 Q115,30 105,25 Q115,20 120,20 Z" />
+                    
+                    <path d="M100,20 Q60,10 20,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
+                    <path d="M80,17 Q75,8 65,12 Q72,15 80,17 Z" />
+                    <path d="M60,15 Q55,6 45,10 Q52,13 60,15 Z" />
+                    <path d="M40,17 Q35,8 25,12 Q32,15 40,17 Z" />
+                    <path d="M70,18 Q65,27 55,23 Q62,20 70,18 Z" />
+                    <path d="M50,19 Q45,28 35,24 Q42,21 50,19 Z" />
+                    
+                    <path d="M140,20 Q180,10 220,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
+                    <path d="M160,17 Q165,8 175,12 Q168,15 160,17 Z" />
+                    <path d="M180,15 Q185,6 195,10 Q188,13 180,15 Z" />
+                    <path d="M200,17 Q205,8 215,12 Q208,15 200,17 Z" />
+                    <path d="M170,18 Q175,27 185,23 Q178,20 170,18 Z" />
+                    <path d="M190,19 Q195,28 205,24 Q198,21 190,19 Z" />
+                </g>
             </svg>
         </div>
 
@@ -355,15 +364,28 @@
         </div>
     </section>
 
-    <!-- 3. Programterv -->
     <section class="program">
         <div class="container">
             <div class="divider">
-                <svg viewBox="0 0 100 20">
-                    <path d="M 10,10 C 30,15 40,5 50,10 C 60,15 70,5 90,10" />
-                    <path d="M 30,12 C 28,8 32,5 35,9 C 33,13 31,14 30,12 Z" fill="#90A583" />
-                    <path d="M 45,8 C 43,4 47,2 50,6 C 48,10 46,11 45,8 Z" fill="#90A583" />
-                    <path d="M 65,11 C 67,7 71,8 70,12 C 67,14 65,13 65,11 Z" fill="#90A583" />
+                <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="var(--accent-green)">
+                        <path d="M120,20 Q125,10 135,15 Q125,20 120,20 Z" />
+                        <path d="M120,20 Q115,10 105,15 Q115,20 120,20 Z" />
+                        <path d="M120,20 Q125,30 135,25 Q125,20 120,20 Z" />
+                        <path d="M120,20 Q115,30 105,25 Q115,20 120,20 Z" />
+                        <path d="M100,20 Q60,10 20,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
+                        <path d="M80,17 Q75,8 65,12 Q72,15 80,17 Z" />
+                        <path d="M60,15 Q55,6 45,10 Q52,13 60,15 Z" />
+                        <path d="M40,17 Q35,8 25,12 Q32,15 40,17 Z" />
+                        <path d="M70,18 Q65,27 55,23 Q62,20 70,18 Z" />
+                        <path d="M50,19 Q45,28 35,24 Q42,21 50,19 Z" />
+                        <path d="M140,20 Q180,10 220,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
+                        <path d="M160,17 Q165,8 175,12 Q168,15 160,17 Z" />
+                        <path d="M180,15 Q185,6 195,10 Q188,13 180,15 Z" />
+                        <path d="M200,17 Q205,8 215,12 Q208,15 200,17 Z" />
+                        <path d="M170,18 Q175,27 185,23 Q178,20 170,18 Z" />
+                        <path d="M190,19 Q195,28 205,24 Q198,21 190,19 Z" />
+                    </g>
                 </svg>
             </div>
 
@@ -400,50 +422,21 @@
         </div>
     </section>
 
-    <!-- 4. Gyakori Kérdések -->
     <section class="faq container">
         <div class="divider">
-            <svg viewBox="0 0 100 20">
-                <path d="M 10,10 C 30,15 40,5 50,10 C 60,15 70,5 90,10" />
-                <path d="M 30,12 C 28,8 32,5 35,9 C 33,13 31,14 30,12 Z" fill="#90A583" />
-                <path d="M 45,8 C 43,4 47,2 50,6 C 48,10 46,11 45,8 Z" fill="#90A583" />
-                <path d="M 65,11 C 67,7 71,8 70,12 C 67,14 65,13 65,11 Z" fill="#90A583" />
-            </svg>
-        </div>
-
-        <h2>Gyakori Kérdések</h2>
-        
-        <details>
-            <summary>Nászajándék</summary>
-            <div class="faq-content">
-                A legnagyobb ajándék számunkra, hogy velünk ünnepeltek. Mivel a háztartásunk már teljes, ha szeretnétek hozzájárulni a közös életünkhöz, azt borítékban tehetitek meg.
-            </div>
-        </details>
-
-        <details>
-            <summary>Utazás és Transzfer</summary>
-            <div class="faq-content">
-                Az este folyamán, a lagzi helyszínéről Szegedre a transzfer biztosított lesz, így senkinek nem kell aggódnia a hazajutás miatt.
-            </div>
-        </details>
-
-        <details>
-            <summary>Ételintolerancia</summary>
-            <div class="faq-content">
-                Kérjük, az esetleges ételintoleranciát a visszajelzéskor feltétlenül jelezzétek felénk!
-            </div>
-        </details>
-
-    </section>
-
-    <!-- 5. Visszajelzés -->
-    <section class="rsvp">
-        <div class="container">
-            <h2>Visszajelzés</h2>
-            <p>Kérjük, részvételi szándékotokat 2026. június 15-ig jelezzétek felénk!</p>
-            <a href="https://forms.gle/13V3rEkRmvKMJMfr8" target="_blank" class="btn">Visszajelzés űrlap megnyitása</a>
-        </div>
-    </section>
-
-</body>
-</html>
+            <svg viewBox="0 0 240 40" xmlns="http://www.w3.org/2000/svg">
+                <g fill="var(--accent-green)">
+                    <path d="M120,20 Q125,10 135,15 Q125,20 120,20 Z" />
+                    <path d="M120,20 Q115,10 105,15 Q115,20 120,20 Z" />
+                    <path d="M120,20 Q125,30 135,25 Q125,20 120,20 Z" />
+                    <path d="M120,20 Q115,30 105,25 Q115,20 120,20 Z" />
+                    <path d="M100,20 Q60,10 20,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
+                    <path d="M80,17 Q75,8 65,12 Q72,15 80,17 Z" />
+                    <path d="M60,15 Q55,6 45,10 Q52,13 60,15 Z" />
+                    <path d="M40,17 Q35,8 25,12 Q32,15 40,17 Z" />
+                    <path d="M70,18 Q65,27 55,23 Q62,20 70,18 Z" />
+                    <path d="M50,19 Q45,28 35,24 Q42,21 50,19 Z" />
+                    <path d="M140,20 Q180,10 220,20" stroke="var(--accent-green)" stroke-width="1.2" fill="none"/>
+                    <path d="M160,17 Q165,8 175,12 Q168,15 160,17 Z" />
+                    <path d="M180,15 Q185,6 195,10 Q188,13 180,15 Z" />
+                    <path d="M200,17 Q205,8 215,12 Q208,1
